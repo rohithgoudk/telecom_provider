@@ -1,0 +1,340 @@
+.company-page {
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+    padding: 8rem 1.5rem 6rem;
+  }
+  
+  @media (min-width: 768px) {
+    .company-page { padding: 9rem 3rem 7rem; }
+  }
+  
+  .section-title {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.08;
+    margin: 0.75rem 0 1rem;
+  }
+  
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #60a5fa;
+  }
+  
+  .company-hero {
+    max-width: 760px;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+  
+  .company-hero-title {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(2.25rem, 6vw, 3.75rem);
+    line-height: 1.05;
+    margin: 0.75rem 0 0;
+  }
+  
+  /* ---- Signature: sticky-pinned quote beside scrolling milestones ---- */
+  .company-pin-section {
+    max-width: 1120px;
+    margin: 0 auto 6rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 800px) {
+    .company-pin-section {
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+  }
+  
+  .company-pin-sticky {
+    position: sticky;
+    top: 6rem;
+    align-self: start;
+    height: fit-content;
+  }
+  
+  /* ---- Signature: gradient background-clip text ---- */
+  .company-pin-quote {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(1.5rem, 3.2vw, 2.25rem);
+    line-height: 1.35;
+    background: linear-gradient(120deg, #fff 40%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .company-milestones {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 1rem 0;
+  }
+  
+  .milestone-row {
+    display: flex;
+    align-items: baseline;
+    gap: 1.25rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .milestone-year {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 1.6rem;
+    color: rgba(96, 165, 250, 0.8);
+    flex-shrink: 0;
+    width: 4rem;
+  }
+  
+  .milestone-label {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  /* ---- Signature: grayscale -> color reveal on hover ---- */
+  .company-team {
+    max-width: 1120px;
+    margin: 0 auto 6rem;
+  }
+  
+  .team-grid {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  
+  @media (min-width: 700px) {
+    .team-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  
+  .team-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  
+  .team-photo-wrap {
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+  }
+  
+  .team-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) brightness(0.85);
+    transition: filter 0.4s ease, transform 0.4s ease;
+  }
+  
+  .team-card:hover .team-photo {
+    filter: grayscale(0) brightness(1);
+    transform: scale(1.03);
+  }
+  
+  .team-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+  }
+  
+  .team-role {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  /* ============ Contact section ============ */
+  .company-contact {
+    max-width: 1120px;
+    margin: 0 auto 6rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-top: 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  @media (min-width: 900px) {
+    .company-contact {
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 4rem;
+    }
+  }
+  
+  .contact-info { max-width: 32rem; }
+  
+  .contact-body {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  
+  .contact-details {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .contact-details li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.5;
+  }
+  
+  /* ---- Signature: animated rotating conic-gradient border around the form ---- */
+  .contact-form-wrap {
+    position: relative;
+    border-radius: 26px;
+    padding: 1.5px;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  
+  .contact-form-wrap::before {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    background: conic-gradient(
+      from 0deg,
+      rgba(96, 165, 250, 0.9),
+      rgba(96, 165, 250, 0) 25%,
+      rgba(96, 165, 250, 0) 50%,
+      rgba(96, 165, 250, 0.9) 75%,
+      rgba(96, 165, 250, 0) 100%
+    );
+    animation: border-rotate 5s linear infinite;
+    z-index: 0;
+  }
+  
+  @keyframes border-rotate {
+    to { transform: rotate(360deg); }
+  }
+  
+  .contact-form-inner {
+    position: relative;
+    z-index: 1;
+    background: #030303;
+    border-radius: 24.5px;
+    padding: 2rem;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* ---- Floating labels driven purely by :placeholder-shown, no JS ---- */
+  .form-field {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-field input,
+  .form-field textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 1.35rem 1rem 0.55rem;
+    color: #fff;
+    font-size: 0.9rem;
+    font-family: 'Barlow', sans-serif;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  
+  .form-field textarea {
+    min-height: 110px;
+    resize: vertical;
+  }
+  
+  .form-field input:focus,
+  .form-field textarea:focus {
+    outline: none;
+    border-color: rgba(96, 165, 250, 0.7);
+    background: rgba(96, 165, 250, 0.05);
+  }
+  
+  .form-field label {
+    position: absolute;
+    left: 1rem;
+    top: 1.1rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+    transition: all 0.18s ease;
+  }
+  
+  .form-field input:focus + label,
+  .form-field input:not(:placeholder-shown) + label,
+  .form-field textarea:focus + label,
+  .form-field textarea:not(:placeholder-shown) + label {
+    top: 0.45rem;
+    font-size: 0.65rem;
+    color: #60a5fa;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  
+  .contact-submit {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+  
+  .contact-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 2rem 0;
+  }
+  
+  .contact-success h3 {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    margin-top: 0.25rem;
+  }
+  
+  .contact-success p {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .company-cta {
+    display: flex;
+    justify-content: center;
+  }
+  
+  @media (max-width: 800px) {
+    .company-pin-sticky { position: static; }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .contact-form-wrap::before { animation: none; }
+  }

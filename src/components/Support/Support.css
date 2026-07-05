@@ -1,0 +1,475 @@
+.support-page {
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+  }
+  
+  /* ============ Shared section rhythm ============ */
+  .support-hero,
+  .support-channels,
+  .support-resources,
+  .support-status-wall,
+  .support-stepper,
+  .support-faq,
+  .support-cta {
+    padding: 6rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .support-hero { border-top: none; padding-top: 8rem; text-align: center; }
+  
+  @media (min-width: 768px) {
+    .support-hero,
+    .support-channels,
+    .support-resources,
+    .support-status-wall,
+    .support-stepper,
+    .support-faq,
+    .support-cta {
+      padding: 7rem 3rem;
+    }
+    .support-hero { padding-top: 9rem; }
+  }
+  
+  .section-title {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.08;
+    margin: 0.75rem 0 1.75rem;
+  }
+  
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #60a5fa;
+  }
+  
+  /* ============ Duotone image utility ============ */
+  .duo-image-wrap {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: linear-gradient(160deg, #0f172a 0%, #1e3a5f 100%);
+  }
+  
+  .duo-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(1) contrast(1.15) brightness(0.55);
+  }
+  
+  .duo-image-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, rgba(96, 165, 250, 0.8) 0%, rgba(10, 15, 35, 0.92) 100%);
+    mix-blend-mode: color;
+    pointer-events: none;
+  }
+  
+  /* ============ Hero ============ */
+  .support-hero-title {
+    max-width: 720px;
+    margin: 0.75rem auto 0;
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(2.25rem, 6vw, 3.75rem);
+    line-height: 1.05;
+  }
+  
+  .support-status-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .support-status-line .pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 6px 2px rgba(74, 222, 128, 0.6);
+    animation: blink 1.6s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  
+  /* Signature: pure-CSS typewriter, no JS interval */
+  .status-typewriter {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid rgba(96, 165, 250, 0.8);
+    width: 24ch;
+    animation:
+      typewriter 3.5s steps(24, end) infinite alternate,
+      caret-blink 0.75s step-end infinite;
+  }
+  
+  @keyframes typewriter {
+    from { width: 0; }
+    to { width: 24ch; }
+  }
+  
+  @keyframes caret-blink {
+    50% { border-color: transparent; }
+  }
+  
+  /* ============ Channels ============ */
+  .support-channels {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  
+  @media (max-width: 700px) {
+    .support-channels { grid-template-columns: 1fr; }
+  }
+  
+  .channel-card {
+    border-radius: 18px;
+    padding: 1.75rem;
+    text-align: center;
+  }
+  
+  .channel-title {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    margin: 0.6rem 0 0.4rem;
+  }
+  
+  .channel-body {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 300;
+  }
+  
+  /* ============ Resource library ============ */
+  .support-resources {
+    max-width: 1120px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .resource-grid {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: left;
+  }
+  
+  @media (min-width: 800px) {
+    .resource-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  
+  .resource-thumb {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  
+  /* Signature: play button drawn with a CSS border-triangle, no icon asset */
+  .resource-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(10, 15, 35, 0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  
+  .resource-play::after {
+    content: "";
+    display: block;
+    border-style: solid;
+    border-width: 8px 0 8px 14px;
+    border-color: transparent transparent transparent #fff;
+    margin-left: 3px;
+  }
+  
+  .resource-card:hover .resource-play {
+    transform: translate(-50%, -50%) scale(1.12);
+    background: rgba(96, 165, 250, 0.4);
+  }
+  
+  .resource-duration {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    font-size: 0.65rem;
+    padding: 0.15rem 0.45rem;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.65);
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .resource-title {
+    margin-top: 0.85rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.4;
+  }
+  
+  /* ============ Live status wall ============ */
+  .support-status-wall {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .status-wall {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0.6rem;
+  }
+  
+  @media (max-width: 640px) {
+    .status-wall { grid-template-columns: repeat(8, 1fr); }
+  }
+  
+  .status-dot {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 6px 1px rgba(74, 222, 128, 0.5);
+    animation: status-pulse 2.4s ease-in-out infinite;
+  }
+  
+  .status-dot.warn {
+    background: #fbbf24;
+    box-shadow: 0 0 6px 1px rgba(251, 191, 36, 0.5);
+  }
+  
+  @keyframes status-pulse {
+    0%, 100% { opacity: 0.55; }
+    50% { opacity: 1; }
+  }
+  
+  .status-wall-caption {
+    margin-top: 1.25rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.45);
+  }
+  
+  /* ============ Stepper (CSS counters) ============ */
+  .support-stepper {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .stepper-list {
+    list-style: none;
+    counter-reset: step;
+    display: flex;
+    margin-top: 2rem;
+  }
+  
+  @media (max-width: 640px) {
+    .stepper-list { flex-direction: column; gap: 1.5rem; }
+  }
+  
+  .stepper-item {
+    counter-increment: step;
+    position: relative;
+    flex: 1;
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.65);
+    padding-top: 2.5rem;
+  }
+  
+  .stepper-item::before {
+    content: counter(step);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: #fff;
+    background: rgba(96, 165, 250, 0.15);
+    border: 1px solid rgba(96, 165, 250, 0.4);
+  }
+  
+  .stepper-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 17px;
+    left: calc(50% + 24px);
+    right: calc(-50% + 24px);
+    height: 1px;
+    background: rgba(96, 165, 250, 0.3);
+  }
+  
+  @media (max-width: 640px) {
+    .stepper-item::after { display: none; }
+    .stepper-item::before { left: 0; transform: none; }
+    .stepper-item { text-align: left; padding-left: 3rem; padding-top: 0; }
+  }
+  
+  /* ============ FAQ accordion (grid-rows trick) ============ */
+  .support-faq {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+  
+  .faq-item {
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0 1.25rem;
+  }
+  
+  .faq-summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.1rem 0;
+    font-size: 0.95rem;
+    color: #fff;
+  }
+  
+  .faq-summary::-webkit-details-marker { display: none; }
+  
+  .faq-chevron {
+    transition: transform 0.25s ease;
+    color: rgba(255, 255, 255, 0.5);
+    flex-shrink: 0;
+  }
+  
+  .faq-item[open] .faq-chevron { transform: rotate(180deg); }
+  
+  .faq-answer-wrap {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+  }
+  
+  .faq-item[open] .faq-answer-wrap { grid-template-rows: 1fr; }
+  
+  .faq-answer-wrap > .faq-answer {
+    overflow: hidden;
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    padding-bottom: 1.1rem;
+    min-height: 0;
+  }
+  
+  /* ============ CTA: cursor-tracked spotlight ============ */
+  .support-cta {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .spotlight-cta {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    border-radius: 28px;
+    overflow: hidden;
+    --mx: 50%;
+    --my: 50%;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .spotlight-image {
+    position: absolute;
+    inset: 0;
+  }
+  
+  /* The veil hides the image everywhere except a soft circle around the cursor */
+  .spotlight-veil {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle 220px at var(--mx) var(--my), transparent 0%, rgba(0, 0, 0, 0.94) 72%);
+    transition: background 0.05s linear;
+    pointer-events: none;
+  }
+  
+  .spotlight-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .spotlight-panel {
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    max-width: 420px;
+  }
+  
+  .spotlight-title {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 1.9rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .spotlight-body {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 1.75rem;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .status-typewriter, .pulse-dot, .status-dot { animation: none; width: auto; border-right: none; }
+  }

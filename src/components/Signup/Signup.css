@@ -1,0 +1,363 @@
+.signup-page {
+    min-height: 100vh;
+    background:
+      radial-gradient(1100px 600px at 15% -10%, rgba(0, 229, 199, 0.12), transparent 60%),
+      radial-gradient(900px 500px at 100% 10%, rgba(255, 61, 138, 0.10), transparent 55%),
+      #050b16;
+    color: #f5f7fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6rem 1.25rem 4rem;
+    position: relative;
+    font-family: 'Barlow', sans-serif;
+  }
+  
+  @media (min-width: 768px) {
+    .signup-page { padding: 7rem 1.5rem 4rem; }
+  }
+  
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #00e5c7;
+  }
+  
+  /* ---- Back to home ---- */
+  .back-home-btn {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #f5f7fa;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(0, 229, 199, 0.18);
+    border-radius: 9999px;
+    padding: 0.55rem 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  
+  .back-home-btn:hover { transform: translateX(-2px); border-color: rgba(0, 229, 199, 0.4); }
+  .back-home-btn:active { transform: translateX(0) scale(0.97); }
+  
+  @media (min-width: 768px) {
+    .back-home-btn { top: 2rem; left: 2rem; }
+  }
+  
+  /* ---- Card ---- */
+  .signup-card {
+    width: 100%;
+    max-width: 460px;
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    margin-top: 2rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
+    border: 1px solid rgba(0, 229, 199, 0.14);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.02) inset,
+      0 30px 80px -30px rgba(0, 229, 199, 0.18);
+  }
+  
+  @media (min-width: 480px) {
+    .signup-card { padding: 3rem 2.5rem; }
+  }
+  
+  .signup-header {
+    text-align: center;
+    margin-bottom: 1.75rem;
+  }
+  
+  .signup-title {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(1.9rem, 5vw, 2.5rem);
+    margin: 0.6rem 0 0.4rem;
+    background: linear-gradient(90deg, #f5f7fa 40%, #00e5c7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .signup-subtitle {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: rgba(245, 247, 250, 0.55);
+  }
+  
+  /* ---- Social buttons ---- */
+  .signup-socials {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .social-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 12px;
+    padding: 0.65rem 0.5rem;
+    color: #f5f7fa;
+    font-size: 0.78rem;
+    font-weight: 500;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  }
+  
+  .social-btn span { display: none; }
+  
+  @media (min-width: 420px) {
+    .social-btn span { display: inline; }
+  }
+  
+  .social-btn:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 229, 199, 0.35);
+    background: rgba(0, 229, 199, 0.06);
+  }
+  .social-btn:active { transform: translateY(0) scale(0.97); }
+  
+  .signup-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0 0 1.5rem;
+    color: rgba(245, 247, 250, 0.35);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  
+  .signup-divider::before,
+  .signup-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* ---- Form fields (floating label via :placeholder-shown) ---- */
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-field {
+    position: relative;
+    margin-bottom: 1.25rem;
+  }
+  
+  .form-field input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.3rem 1rem 0.5rem;
+    color: #f5f7fa;
+    font-size: 0.9rem;
+    font-family: 'Barlow', sans-serif;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  
+  .form-field input.has-toggle {
+    padding-right: 2.75rem;
+  }
+  
+  .form-field input:focus {
+    outline: none;
+    border-color: rgba(0, 229, 199, 0.6);
+    background: rgba(0, 229, 199, 0.04);
+  }
+  
+  .form-field label {
+    position: absolute;
+    left: 1rem;
+    top: 1.05rem;
+    font-size: 0.88rem;
+    color: rgba(245, 247, 250, 0.4);
+    pointer-events: none;
+    transition: all 0.18s ease;
+  }
+  
+  .form-field input:focus + label,
+  .form-field input:not(:placeholder-shown) + label {
+    top: 0.4rem;
+    font-size: 0.62rem;
+    color: #00e5c7;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  
+  /* Each password field owns its own toggle — no shared/duplicate button */
+  .eye-toggle {
+    position: absolute;
+    right: 0.75rem;
+    top: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: transparent;
+    color: rgba(245, 247, 250, 0.5);
+    cursor: pointer;
+    transition: color 0.2s ease, background 0.2s ease;
+  }
+  
+  .eye-toggle:hover {
+    color: #00e5c7;
+    background: rgba(0, 229, 199, 0.1);
+  }
+  
+  .field-error {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.72rem;
+    color: #ff6b8b;
+  }
+  
+  /* ---- Terms checkbox ---- */
+  .terms-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    cursor: pointer;
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .terms-row input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .terms-box {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin-top: 0.1rem;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.03);
+    position: relative;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  
+  .terms-row input:checked + .terms-box {
+    background: #00e5c7;
+    border-color: #00e5c7;
+  }
+  
+  .terms-row input:checked + .terms-box::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 9px;
+    border: solid #04101f;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  
+  .terms-row input:focus-visible + .terms-box {
+    box-shadow: 0 0 0 3px rgba(0, 229, 199, 0.3);
+  }
+  
+  .terms-text {
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: rgba(245, 247, 250, 0.65);
+    line-height: 1.5;
+  }
+  
+  .terms-text a {
+    color: #00e5c7;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  
+  .terms-error {
+    margin-top: -0.15rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* ---- Primary CTA: signal-magenta to teal sweep (matches login) ---- */
+  .btn-primary {
+    position: relative;
+    overflow: hidden;
+    border: none;
+    border-radius: 12px;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #04101f;
+    cursor: pointer;
+    background: linear-gradient(100deg, #00e5c7 0%, #00c2e8 55%, #ff3d8a 130%);
+  }
+  
+  .btn-primary-content {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .btn-primary-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, #ff3d8a 0%, #00c2e8 55%, #00e5c7 130%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  
+  .btn-primary:hover .btn-primary-overlay { opacity: 1; }
+  
+  .signup-submit {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.75rem;
+  }
+  
+  .signin-prompt {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: rgba(245, 247, 250, 0.55);
+  }
+  
+  .signin-link {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    font-weight: 500;
+    color: #00e5c7;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+  }
+  
+  .signin-link:hover {
+    color: #6ff5e0;
+  }

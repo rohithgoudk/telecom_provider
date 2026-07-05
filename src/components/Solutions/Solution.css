@@ -1,0 +1,313 @@
+.solutions-page {
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+  }
+  
+  /* ============ Shared section rhythm ============ */
+  .solutions-hero-section,
+  .solutions-included,
+  .solutions-gallery-section,
+  .solutions-cta-section {
+    padding: 6rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .solutions-hero-section { border-top: none; padding-top: 8rem; }
+  
+  @media (min-width: 768px) {
+    .solutions-hero-section,
+    .solutions-included,
+    .solutions-gallery-section,
+    .solutions-cta-section {
+      padding: 7rem 3rem;
+    }
+    .solutions-hero-section { padding-top: 9rem; }
+  }
+  
+  .section-title {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.08;
+    margin: 0.75rem 0 1.5rem;
+  }
+  
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #60a5fa;
+  }
+  
+  /* ============ Duotone image utility (shared visual signature) ============ */
+  .duo-image-wrap {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: linear-gradient(160deg, #0f172a 0%, #1e3a5f 100%);
+  }
+  
+  .duo-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(1) contrast(1.15) brightness(0.55);
+  }
+  
+  .duo-image-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, rgba(96, 165, 250, 0.8) 0%, rgba(10, 15, 35, 0.92) 100%);
+    mix-blend-mode: color;
+    pointer-events: none;
+  }
+  
+  /* ============ Section 1: Hero + tilt bento grid ============ */
+  .solutions-hero {
+    max-width: 720px;
+    margin: 0 auto 3.5rem;
+    text-align: center;
+  }
+  
+  .solutions-hero-title {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(2.25rem, 6vw, 3.75rem);
+    line-height: 1.05;
+    margin: 0.75rem 0 1rem;
+  }
+  
+  .solutions-hero-body {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .solutions-bento {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 190px;
+    gap: 1rem;
+  }
+  
+  @media (max-width: 900px) {
+    .solutions-bento { grid-template-columns: repeat(2, 1fr); }
+  }
+  
+  @media (max-width: 560px) {
+    .solutions-bento { grid-template-columns: 1fr; grid-auto-rows: auto; }
+    .tilt-card { min-height: 170px; }
+  }
+  
+  .tilt-card.wide { grid-column: span 2; }
+  .tilt-card.tall { grid-row: span 2; }
+  
+  .tilt-card {
+    position: relative;
+    border-radius: 20px;
+    padding: 1.75rem;
+    overflow: hidden;
+    --rx: 0deg;
+    --ry: 0deg;
+    --gx: 50%;
+    --gy: 50%;
+    transform: perspective(800px) rotateX(var(--rx)) rotateY(var(--ry));
+    transition: transform 0.15s ease-out;
+    will-change: transform;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .tilt-sheen {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--gx) var(--gy), rgba(96, 165, 250, 0.2), transparent 60%);
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+  
+  .tilt-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .tilt-icon { color: #60a5fa; margin-bottom: 0.75rem; }
+  .tilt-title {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+  .tilt-body {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.55;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .tilt-card { transition: none; transform: none !important; }
+  }
+  
+  /* ============ Section 2: Universal features + image ============ */
+  .solutions-included {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  
+  @media (min-width: 900px) {
+    .solutions-included {
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 3.5rem;
+    }
+  }
+  
+  .included-image {
+    border-radius: 24px;
+    aspect-ratio: 4 / 5;
+  }
+  
+  @media (max-width: 899px) {
+    .included-image { aspect-ratio: 16 / 9; }
+  }
+  
+  .included-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .included-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .included-item-title {
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+  }
+  
+  .included-item-body {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    max-width: 32rem;
+  }
+  
+  /* ============ Section 3: Use-case gallery ============ */
+  .solutions-gallery-section {
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  
+  .gallery-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 3rem;
+  }
+  
+  .solutions-gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 800px) {
+    .solutions-gallery { grid-template-columns: repeat(3, 1fr); }
+  }
+  
+  .gallery-card {
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .gallery-image {
+    aspect-ratio: 4 / 3;
+  }
+  
+  .gallery-body {
+    padding: 1.5rem;
+  }
+  
+  .gallery-title {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .gallery-text {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+  }
+  
+  /* ============ Section 4: CTA with image backdrop ============ */
+  .solutions-cta-section {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .solutions-cta-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  
+  .solutions-cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    width: 100%;
+    border-radius: 28px;
+    padding: 3.5rem 2rem;
+    text-align: center;
+  }
+  
+  .solutions-cta-title {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: 0.75rem;
+  }
+  
+  .solutions-cta-body {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 2rem;
+  }
+  
+  .solutions-cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }

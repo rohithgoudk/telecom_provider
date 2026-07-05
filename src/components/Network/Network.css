@@ -1,0 +1,409 @@
+.network-page {
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+  }
+  
+  /* ============ Shared section rhythm ============ */
+  .network-hero,
+  .network-live-section,
+  .network-stats-section,
+  .routes-section,
+  .network-cta-section {
+    padding: 6rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .network-hero { border-top: none; padding-top: 8rem; text-align: center; }
+  
+  @media (min-width: 768px) {
+    .network-hero,
+    .network-live-section,
+    .network-stats-section,
+    .routes-section,
+    .network-cta-section {
+      padding: 7rem 3rem;
+    }
+    .network-hero { padding-top: 9rem; }
+  }
+  
+  .section-title {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.08;
+    margin: 0.75rem 0 1.5rem;
+  }
+  
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #60a5fa;
+  }
+  
+  /* ============ Duotone image utility ============ */
+  .duo-image-wrap {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: linear-gradient(160deg, #0f172a 0%, #1e3a5f 100%);
+  }
+  
+  .duo-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(1) contrast(1.15) brightness(0.55);
+  }
+  
+  .duo-image-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, rgba(96, 165, 250, 0.8) 0%, rgba(10, 15, 35, 0.92) 100%);
+    mix-blend-mode: color;
+    pointer-events: none;
+  }
+  
+  /* ============ Section 1: Hero ============ */
+  .network-hero-title {
+    max-width: 720px;
+    margin: 0.75rem auto 1rem;
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(2.25rem, 6vw, 3.75rem);
+    line-height: 1.05;
+    color: #fff;
+  }
+  
+  /* Signature: a photograph clipped into the accent phrase's letterforms */
+  .clipped-word {
+    background:
+      linear-gradient(120deg, rgba(10, 15, 35, 0.35), rgba(96, 165, 250, 0.85)),
+      url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1200&q=80') center/cover;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .network-hero-body {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  /* ============ Section 2: Radar + ticker ============ */
+  .network-live-section {
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  
+  .radar-panel {
+    max-width: 620px;
+    margin: 0 auto 2.5rem;
+    border-radius: 24px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  
+  .radar-sweep {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(96, 165, 250, 0.06) 0%, transparent 70%);
+    overflow: hidden;
+  }
+  
+  .radar-rings {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: repeating-radial-gradient(
+      circle,
+      rgba(96, 165, 250, 0.25) 0,
+      rgba(96, 165, 250, 0.25) 1px,
+      transparent 1px,
+      transparent 20%
+    );
+  }
+  
+  .radar-blade {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, rgba(96, 165, 250, 0.55), transparent 35%);
+    animation: radar-spin 3.2s linear infinite;
+    mix-blend-mode: screen;
+  }
+  
+  @keyframes radar-spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  .radar-blip {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #60a5fa;
+    box-shadow: 0 0 8px 2px rgba(96, 165, 250, 0.7);
+    animation: blip-fade 3.2s linear infinite;
+  }
+  
+  @keyframes blip-fade {
+    0%, 92%, 100% { opacity: 0.15; }
+    8% { opacity: 1; }
+  }
+  
+  .radar-caption {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .radar-caption .pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 6px 2px rgba(74, 222, 128, 0.6);
+    animation: blink 1.6s ease-in-out infinite;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  
+  .ticker-wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    border-radius: 9999px;
+    padding: 0.9rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .ticker-track {
+    display: inline-flex;
+    gap: 3rem;
+    animation: ticker-scroll 22s linear infinite;
+    padding-left: 2rem;
+  }
+  
+  .ticker-item {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 300;
+  }
+  
+  @keyframes ticker-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  
+  /* ============ Section 3: Stats ============ */
+  .network-stats-section {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  
+  .network-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  
+  @media (max-width: 640px) {
+    .network-stats { grid-template-columns: 1fr; }
+  }
+  
+  .network-stat-card {
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .network-stat-value {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 1.8rem;
+  }
+  
+  .network-stat-label {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.55);
+  }
+  
+  /* ============ Section 4: Redundant routes — scroll-snap gallery ============ */
+  .routes-section {
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  
+  .routes-header {
+    max-width: 640px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+  }
+  
+  /* Signature: native horizontal scroll-snap, edges faded via mask-image */
+  .routes-scroller {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0.5rem 1.5rem 1.5rem;
+    margin: 0 -1.5rem;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(96, 165, 250, 0.4) transparent;
+  }
+  
+  .routes-scroller::-webkit-scrollbar {
+    height: 6px;
+  }
+  .routes-scroller::-webkit-scrollbar-thumb {
+    background: rgba(96, 165, 250, 0.4);
+    border-radius: 9999px;
+  }
+  
+  .route-card {
+    scroll-snap-align: start;
+    flex: 0 0 280px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .route-image {
+    aspect-ratio: 4 / 3;
+  }
+  
+  .route-body {
+    padding: 1.25rem;
+  }
+  
+  .route-title {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .route-text {
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.55;
+  }
+  
+  .routes-scroll-hint {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+  }
+  
+  .routes-scroll-track {
+    width: 34px;
+    height: 1px;
+    background: rgba(96, 165, 250, 0.5);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .routes-scroll-track::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -40%;
+    width: 40%;
+    height: 100%;
+    background: #60a5fa;
+    animation: scroll-hint-slide 1.8s ease-in-out infinite;
+  }
+  
+  @keyframes scroll-hint-slide {
+    0% { left: -40%; }
+    50% { left: 60%; }
+    100% { left: -40%; }
+  }
+  
+  /* ============ Section 5: CTA with diagonal clip-path image band ============ */
+  .network-cta-section {
+    position: relative;
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .network-cta-image-band {
+    position: absolute;
+    inset: 0;
+    clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 82%);
+  }
+  
+  .network-cta-image {
+    position: absolute;
+    inset: 0;
+  }
+  
+  .network-cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 620px;
+    width: 100%;
+    border-radius: 28px;
+    padding: 3.5rem 2rem;
+    text-align: center;
+  }
+  
+  .network-cta-title {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: 0.75rem;
+  }
+  
+  .network-cta-body {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 2rem;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .radar-blade, .radar-blip, .ticker-track, .pulse-dot, .routes-scroll-track::after {
+      animation: none;
+    }
+  }
